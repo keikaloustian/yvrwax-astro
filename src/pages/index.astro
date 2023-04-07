@@ -1,17 +1,104 @@
 ---
-import "@fontsource/source-sans-pro";
-import "@fontsource/playfair-display";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>YVR Snow Wax</title>
+
+    <!-- Web fonts in use instead of self-hosting because Astro's recommended method Fontsource caused an issue where font weights below 400 didn't work -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="scroll-smooth">
+    <header
+      class="fixed w-full bg-transparent bg-stone-50 py-2 text-zinc-900 dark:bg-zinc-900 dark:text-stone-50"
+    >
+      <div
+        class="mx-auto flex min-w-[300px] max-w-7xl flex-col px-2 sm:flex-row sm:justify-between sm:px-4 xl:w-[62%]"
+      >
+        <a
+          href="./"
+          class="mb-1 flex justify-center overflow-hidden font-title text-2xl md:text-4xl xl:text-5xl"
+        >
+          <span class="xl:leading-tight">YVR</span>
+
+          <!-- SNOW CLOUD ICON -->
+          <svg
+            class="mx-2 h-4 w-4 self-center fill-current hover:animate-pulse md:mx-2.5 md:h-6 md:w-6 xl:mx-3 xl:h-9 xl:w-9"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M13.405 4.277a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10.25H13a3 3 0 0 0 .405-5.973zM8.5 1.25a4 4 0 0 1 3.976 3.555a.5.5 0 0 0 .5.445H13a2 2 0 0 1-.001 4H3.5a2.5 2.5 0 1 1 .605-4.926a.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 1.25zM2.625 11.5a.25.25 0 0 1 .25.25v.57l.501-.287a.25.25 0 0 1 .248.434l-.495.283l.495.283a.25.25 0 0 1-.248.434l-.501-.286v.569a.25.25 0 1 1-.5 0v-.57l-.501.287a.25.25 0 0 1-.248-.434l.495-.283l-.495-.283a.25.25 0 0 1 .248-.434l.501.286v-.569a.25.25 0 0 1 .25-.25zm2.75 2a.25.25 0 0 1 .25.25v.57l.501-.287a.25.25 0 0 1 .248.434l-.495.283l.495.283a.25.25 0 0 1-.248.434l-.501-.286v.569a.25.25 0 1 1-.5 0v-.57l-.501.287a.25.25 0 0 1-.248-.434l.495-.283l-.495-.283a.25.25 0 0 1 .248-.434l.501.286v-.569a.25.25 0 0 1 .25-.25zm5.5 0a.25.25 0 0 1 .25.25v.57l.501-.287a.25.25 0 0 1 .248.434l-.495.283l.495.283a.25.25 0 0 1-.248.434l-.501-.286v.569a.25.25 0 1 1-.5 0v-.57l-.501.287a.25.25 0 0 1-.248-.434l.495-.283l-.495-.283a.25.25 0 0 1 .248-.434l.501.286v-.569a.25.25 0 0 1 .25-.25zm-2.75-2a.25.25 0 0 1 .25.25v.57l.501-.287a.25.25 0 0 1 .248.434l-.495.283l.495.283a.25.25 0 0 1-.248.434l-.501-.286v.569a.25.25 0 1 1-.5 0v-.57l-.501.287a.25.25 0 0 1-.248-.434l.495-.283l-.495-.283a.25.25 0 0 1 .248-.434l.501.286v-.569a.25.25 0 0 1 .25-.25zm5.5 0a.25.25 0 0 1 .25.25v.57l.501-.287a.25.25 0 0 1 .248.434l-.495.283l.495.283a.25.25 0 0 1-.248.434l-.501-.286v.569a.25.25 0 1 1-.5 0v-.57l-.501.287a.25.25 0 0 1-.248-.434l.495-.283l-.495-.283a.25.25 0 0 1 .248-.434l.501.286v-.569a.25.25 0 0 1 .25-.25z"
+            ></path>
+          </svg>
+
+          <span class="xl:leading-tight">WAX</span>
+        </a>
+        <nav
+          class="flex items-center justify-between px-2 font-sans text-base font-light dark:font-extralight sm:w-5/12 sm:px-0 sm:text-lg md:text-xl lg:w-1/3 xl:w-1/2 xl:text-2xl"
+        >
+          <a
+            class="overflow-hidden after:block after:h-[1px] after:-translate-x-full after:bg-current after:transition after:duration-300 after:ease-in-out hover:after:translate-x-0"
+            href="#services">SERVICES</a
+          >
+          <a
+            class="overflow-hidden after:block after:h-[1px] after:-translate-x-full after:bg-current after:transition after:duration-300 after:ease-in-out hover:after:translate-x-0"
+            href="#location">LOCATION</a
+          >
+          <a
+            class="overflow-hidden after:block after:h-[1px] after:-translate-x-full after:bg-current after:transition after:duration-300 after:ease-in-out hover:after:translate-x-0"
+            href="#booking">CONTACT</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="">
+      <section class="h-[400px] dark:bg-zinc-800">
+        <div
+          class="mx-auto flex h-full min-w-[300px] max-w-7xl flex-col justify-center xl:w-[62%]"
+        >
+          <h1 class="font-title text-4xl text-stone-50 md:text-6xl xl:text-7xl">
+            Go fast. Get a grip.
+          </h1>
+          <p
+            class="font-sans text-lg font-[200] text-stone-50 md:text-2xl xl:text-3xl"
+          >
+            Don't let unkept gear ruin your snow day.
+            <br />
+            Book a ski or snowboard tuneup today.
+          </p>
+        </div>
+      </section>
+      <section id="services" class="min-h-[200px] bg-neutral-400">
+        <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%]">
+          <p>Services</p>
+        </div>
+      </section>
+      <section id="location" class="min-h-[200px] bg-neutral-600">
+        <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%]">
+          <p>Location</p>
+        </div>
+      </section>
+      <section id="booking" class="min-h-[200px] bg-neutral-800">
+        <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%]">
+          <p>Book Appointment</p>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-neutral-900">
+      <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%]">
+        <p class="text-stone-50">Built by K</p>
+      </div>
+    </footer>
+  </body>
 </html>
