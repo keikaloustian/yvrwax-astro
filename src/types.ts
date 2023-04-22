@@ -8,7 +8,7 @@ type Discount = {
   percentOff: number;
 };
 
-export default interface Services {
+export default interface ServiceTypes {
   services: Service[];
   discounts: Discount[];
 }
