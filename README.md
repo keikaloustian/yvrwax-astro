@@ -11,6 +11,7 @@ Landing page for my seasonal side business.
 - [ ] Add bg pattern to location section
 - [ ] Build contact form with social media messaging integration
 - [ ] Use intersection observers to animate elements as users scroll
+- [ ] Build footer with link to GitHub
 - [ ] Deploy on Vercel
   
 
