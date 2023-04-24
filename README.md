@@ -22,6 +22,7 @@ Design inspired by .
 ## Things I Used / Learned About
 * Astro
 * Embedding Google Maps  
+* Generating a new SSH key and adding to GitHub account
 
 ## Finished Product  
 
