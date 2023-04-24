@@ -20,7 +20,7 @@ Design inspired by .
   
 
 ## Things I Used / Learned About
-* Astro
+* Astro, static site generation
 * Embedding Google Maps  
 * Generating a new SSH key and adding to GitHub account
 
