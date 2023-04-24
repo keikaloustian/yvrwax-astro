@@ -1,4 +1,4 @@
-# YVR ❄️ WAX
+# YVR❄️WAX
 Landing page for my seasonal side business.  
   
 Design inspired by .  
