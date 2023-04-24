@@ -1,3 +1,35 @@
+# YVR WAX
+Landing page for my seasonal side business.  
+  
+Design inspired by .  
+
+  
+## Live Demo  
+  
+  
+## To-do List  
+- [ ] Task
+  
+
+  
+## Further Ideas  
+  
+
+## Things I Used / Learned About
+* Astro
+* Embedding Google Maps  
+
+## Finished Product  
+
+
+## Dependencies
+* astro
+* tailwindcss
+
+<br/>
+<br/>
+<br/>
+
 # Astro Starter Kit: Minimal
 
 ```
