@@ -1,6 +1,21 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import waxDrip from "../media/wax.jpg";
+
+// Services type definitions
+import type ServiceTypes from "../types";
+// Services data
+const services: ServiceTypes = {
+  services: [
+    {
+      name: "Hot Wax",
+      price: 30,
+    },
+    { name: "Edge Sharpening", price: 15 },
+    { name: "Base Repair", price: "price upon inspection" },
+  ],
+  discounts: [{ category: "kids", percentOff: 50 }],
+};
 ---
 
 <section id="services" class="bg-stone-50 dark:bg-zinc-950 min-h-[450px]">
