@@ -31,6 +31,9 @@ Landing page for my seasonal side business.
 ## Dependencies
 * astro
 * tailwindcss
+* @astrojs/image
+* @astrojs/tailwind
+* sharp
 
 <br/>
 <br/>
