@@ -7,7 +7,7 @@ Landing page for my seasonal side business.
   
   
 ## To-do List  
-- [ ] Add picture(s) to the pricing section using Astro's optimized components
+- [x] Add picture(s) to the pricing section using Astro's optimized component
 - [ ] Add bg pattern to location section
 - [ ] Build contact form with social media messaging integration
 - [ ] Use intersection observers to animate elements as users scroll
@@ -21,6 +21,7 @@ Landing page for my seasonal side business.
 
 ## Things I Used / Learned About
 * Astro, static site generation
+* Responsive images in HTML, @astro/image integration
 * Embedding Google Maps  
 * Generating a new SSH key and adding to GitHub account
 
@@ -30,6 +31,9 @@ Landing page for my seasonal side business.
 ## Dependencies
 * astro
 * tailwindcss
+* @astrojs/image
+* @astrojs/tailwind
+* sharp
 
 <br/>
 <br/>
