@@ -21,6 +21,7 @@ Landing page for my seasonal side business.
 
 ## Things I Used / Learned About
 * Astro, static site generation
+* Responsive images in HTML, @astro/image integration
 * Embedding Google Maps  
 * Generating a new SSH key and adding to GitHub account
 
