@@ -7,7 +7,7 @@ Landing page for my seasonal side business.
   
   
 ## To-do List  
-- [ ] Add picture(s) to the pricing section using Astro's optimized components
+- [x] Add picture(s) to the pricing section using Astro's optimized component
 - [ ] Add bg pattern to location section
 - [ ] Build contact form with social media messaging integration
 - [ ] Use intersection observers to animate elements as users scroll
