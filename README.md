@@ -23,6 +23,7 @@ Landing page for my seasonal side business.
 * Astro, static site generation
 * Responsive images in HTML, @astro/image integration
 * Embedding Google Maps  
+* CSS Stacking Context  
 * Generating a new SSH key and adding to GitHub account
 
 ## Finished Product  
