@@ -122,7 +122,7 @@ export default function Form() {
       </div>
 
       <button className="font-sans font-semibold text-zinc-950 bg-yellow-500 hover:bg-yellow-600 mt-[1em] w-1/2 place-self-center xs:col-span-2">
-        Send
+        Submit
       </button>
     </form>
   );
