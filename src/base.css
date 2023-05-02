@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:focus {
+  outline: 2px #eab308 solid;
+  border-radius: 1px;
+}
+
+@supports selector(:focus-visible) {
+  *:focus {
+    outline: none;
+  }
+  *:focus-visible {
+    outline: 2px #eab308 solid;
+    border-radius: 1px;
+  }
+}
