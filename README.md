@@ -17,6 +17,7 @@ Landing page for my seasonal side business.
 
   
 ## Further Ideas  
+* Use Yup for form schema validation
   
 
 ## Things I Used / Learned About
