@@ -21,11 +21,12 @@ Landing page for my seasonal side business.
   
 
 ## Things I Used / Learned About
+* Generating a new SSH key and adding to GitHub account
 * Astro, static site generation
 * Responsive images in HTML, @astro/image integration
 * Embedding Google Maps  
 * CSS Stacking Context  
-* Generating a new SSH key and adding to GitHub account
+* Formik
 
 ## Finished Product  
 
@@ -35,7 +36,11 @@ Landing page for my seasonal side business.
 * tailwindcss
 * @astrojs/image
 * @astrojs/tailwind
+* @astrojs/react
+* react
 * sharp
+* formik
+* @heroicons/react
 
 <br/>
 <br/>
