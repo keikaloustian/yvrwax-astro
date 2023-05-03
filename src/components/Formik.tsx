@@ -39,8 +39,7 @@ const TextInput = ({ label, ...props }) => {
       ></input>
       {meta.touched && meta.error ? (
         <ErrorMessageP message={meta.error} />
-      ) : // <p className="form-error">{meta.error}</p>
-      null}
+      ) : null}
     </div>
   );
 };
@@ -98,24 +97,24 @@ const validateInputs = (values: FormValues) => {
   if (!values.name) {
     errors.name = "Required";
   } else if (values.name.length < 2) {
-    errors.name = "Name must be between 2 to 15 characters";
+    errors.name = "Name must be 2 to 15 characters";
   }
 
   // Phone validation
   if (!values.phone) {
     errors.phone = "Required";
   } else if (values.phone.length > 10) {
-    errors.phone = "Phone number must be 10 digits, no spaces";
+    errors.phone = "Phone number must be 10 digits";
   }
 
   // Email validation
   if (!values.email) {
     errors.email = "Required";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]$/i.test(values.email)) {
-    errors.email = "Invalid email address";
+    errors.email = "Invalid email format";
   }
 
-  // Gear quantitty validation
+  // Gear quantity validation
   if (!values.gearQuantity) {
     errors.gearQuantity = "Required";
   } else if (values.gearQuantity < 1 || values.gearQuantity > 99) {
@@ -165,7 +164,7 @@ export default function ContactForm() {
         <TextInput
           label="Email"
           name="email"
-          type="text"
+          type="email"
           placeholder="your@email.com"
         />
 
@@ -173,6 +172,8 @@ export default function ContactForm() {
           label="How many skis/snowboards?"
           name="gearQuantity"
           type="number"
+          min={1}
+          max={99}
         />
 
         <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
