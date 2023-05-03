@@ -86,8 +86,8 @@ const validateInputs = (values: FormValues) => {
   // Name validation
   if (!values.name) {
     errors.name = "Required";
-  } else if (values.name.length > 20) {
-    errors.name = "Maximum length 20 characters";
+  } else if (values.name.length < 2) {
+    errors.name = "Minimum length 2 characters";
   }
 
   // Phone validation
@@ -141,6 +141,7 @@ export default function ContactForm() {
           name="name"
           type="text"
           placeholder="Your name"
+          maxlength={15}
         />
 
         <TextInput
