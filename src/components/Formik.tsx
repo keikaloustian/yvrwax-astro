@@ -17,14 +17,14 @@ const TextInput = ({ label, ...props }) => {
     <div>
       <label
         htmlFor={props.id || props.name}
-        className="font-sans dark:text-stone-50 font-light text-start block mb-1"
+        className="font-sans dark:text-stone-50 dark:font-light text-start block mb-1 after:content-['*'] after:text-yellow-600 after:inline-block"
       >
         {label}{" "}
       </label>
       <input
         {...field}
         {...props}
-        className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:font-extralight xs:w-full"
+        className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:dark:font-extralight xs:w-full "
       ></input>
       {meta.touched && meta.error ? <p>{meta.error}</p> : null}
     </div>
@@ -36,7 +36,7 @@ const CheckToken = ({ children, ...props }) => {
 
   return (
     <>
-      <label className="font-sans dark:text-stone-50 font-light text-start px-2 py-1 rounded-md w-max flex dark:bg-zinc-900  hover:outline hover:outline-[1px] hover:outline-yellow-500">
+      <label className="font-sans dark:text-stone-50 font-light text-start px-2 py-1 rounded-md w-max flex dark:bg-zinc-900 bg-white hover:outline hover:outline-[1px] hover:outline-yellow-500">
         <input
           type="checkbox"
           {...field}
@@ -63,7 +63,7 @@ const TextArea = ({ label, ...props }) => {
       <textarea
         {...field}
         {...props}
-        className="dark:bg-zinc-900 rounded-sm font-light italic pl-[0.25em] py-[.1em] placeholder:italic placeholder:font-extralight text-stone-50 w-full"
+        className="dark:bg-zinc-900 rounded-sm font-light italic pl-[0.25em] py-[.1em] placeholder:italic placeholder:font-extralight dark:text-stone-50 w-full"
       ></textarea>
       {meta.touched && meta.error ? <p>{meta.error}</p> : null}
     </div>
@@ -134,9 +134,9 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="font-sans font-semibold text-zinc-950 bg-yellow-500 hover:bg-yellow-600 mt-[1em] w-1/2 place-self-center xs:col-span-2"
+          className="font-sans font-semibold text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
         >
-          Send
+          Submit
         </button>
       </Form>
     </Formik>
