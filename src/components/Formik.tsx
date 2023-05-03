@@ -1,6 +1,6 @@
-import { Formik, Form, useField } from "formik";
+import { Formik, Form, useField, FormikErrors } from "formik";
 
-interface Values {
+interface FormValues {
   name: string;
   phone: string;
   email: string;
@@ -11,6 +11,7 @@ interface Values {
   message?: string;
 }
 
+// Text / number input component
 const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
@@ -26,11 +27,14 @@ const TextInput = ({ label, ...props }) => {
         {...props}
         className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:dark:font-extralight xs:w-full "
       ></input>
-      {meta.touched && meta.error ? <p>{meta.error}</p> : null}
+      {meta.touched && meta.error ? (
+        <p className="form-error">{meta.error}</p>
+      ) : null}
     </div>
   );
 };
 
+// Checkbox label component
 const CheckToken = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
 
@@ -45,11 +49,14 @@ const CheckToken = ({ children, ...props }) => {
         />
         {children}
       </label>
-      {meta.touched && meta.error ? <p>{meta.error}</p> : null}
+      {meta.touched && meta.error ? (
+        <p className="form-error">{meta.error}</p>
+      ) : null}
     </>
   );
 };
 
+// Textarea component
 const TextArea = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
@@ -65,9 +72,46 @@ const TextArea = ({ label, ...props }) => {
         {...props}
         className="dark:bg-zinc-900 rounded-sm font-light italic pl-[0.25em] py-[.1em] placeholder:italic placeholder:font-extralight dark:text-stone-50 w-full"
       ></textarea>
-      {meta.touched && meta.error ? <p>{meta.error}</p> : null}
+      {meta.touched && meta.error ? (
+        <p className="form-error">{meta.error}</p>
+      ) : null}
     </div>
   );
+};
+
+// Validation function
+const validateInputs = (values: FormValues) => {
+  const errors: FormikErrors<FormValues> = {};
+
+  // Name validation
+  if (!values.name) {
+    errors.name = "Required";
+  } else if (values.name.length > 20) {
+    errors.name = "Maximum length 20 characters";
+  }
+
+  // Phone validation
+  if (!values.phone) {
+    errors.phone = "Required";
+  } else if (values.phone.length > 10) {
+    errors.phone = "Phone number must be 10 digits, no spaces";
+  }
+
+  // Email validation
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+
+  // Gear quantitty validation
+  if (!values.gearQuantity) {
+    errors.gearQuantity = "Required";
+  } else if (values.gearQuantity < 1 || values.gearQuantity > 99) {
+    errors.gearQuantity = "Value must be between 1 and 99";
+  }
+
+  return errors;
 };
 
 export default function ContactForm() {
@@ -83,7 +127,7 @@ export default function ContactForm() {
         repairs: false,
         message: "",
       }}
-      // validate={}
+      validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
