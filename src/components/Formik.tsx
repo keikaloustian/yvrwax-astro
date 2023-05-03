@@ -1,4 +1,5 @@
 import { Formik, Form, useField, FormikErrors } from "formik";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 interface FormValues {
   name: string;
@@ -10,6 +11,15 @@ interface FormValues {
   repairs?: boolean;
   message?: string;
 }
+
+const ErrorMessageP = ({ message }) => {
+  return (
+    <p className="form-error">
+      <ExclamationTriangleIcon className="h-4 w-4 inline-block mr-1" />
+      {message}
+    </p>
+  );
+};
 
 // Text / number input component
 const TextInput = ({ label, ...props }) => {
@@ -28,8 +38,9 @@ const TextInput = ({ label, ...props }) => {
         className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:dark:font-extralight xs:w-full "
       ></input>
       {meta.touched && meta.error ? (
-        <p className="form-error">{meta.error}</p>
-      ) : null}
+        <ErrorMessageP message={meta.error} />
+      ) : // <p className="form-error">{meta.error}</p>
+      null}
     </div>
   );
 };
@@ -87,7 +98,7 @@ const validateInputs = (values: FormValues) => {
   if (!values.name) {
     errors.name = "Required";
   } else if (values.name.length < 2) {
-    errors.name = "Minimum length 2 characters";
+    errors.name = "Name must be between 2 to 15 characters";
   }
 
   // Phone validation
