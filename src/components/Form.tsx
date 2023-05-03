@@ -16,7 +16,6 @@ export default function Form() {
           placeholder="Your name"
         />
       </div>
-
       {/* PHONE */}
       <div>
         <label
@@ -32,7 +31,6 @@ export default function Form() {
           placeholder="123 456 7890"
         />
       </div>
-
       {/* EMAIL */}
       <div>
         <label
@@ -64,7 +62,6 @@ export default function Form() {
           min={1}
         />
       </div>
-
       <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
         {/* WAX CHECKBOX */}
         <label
@@ -105,7 +102,6 @@ export default function Form() {
           Repairs
         </label>
       </div>
-
       {/* MESSAGE */}
       <div className="xs:col-span-2">
         <label
@@ -120,7 +116,6 @@ export default function Form() {
           placeholder="Anything else to add?"
         />
       </div>
-
       <button className="font-sans font-semibold text-zinc-950 bg-yellow-500 hover:bg-yellow-600 mt-[1em] w-1/2 place-self-center xs:col-span-2">
         Send
       </button>

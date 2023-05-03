@@ -1,5 +1,6 @@
 ---
 import Form from "./Form";
+import ContactForm from "./Formik";
 ---
 
 <section id="booking" class="min-h-[500px] bg-stone-50 dark:bg-zinc-950">
@@ -11,6 +12,7 @@ import Form from "./Form";
         GET IN <span class="dark:text-yellow-600 text-yellow-700">TOUCH</span>
       </h2>
     </div>
-    <Form client:visible />
+    <!-- <Form client:visible /> -->
+    <ContactForm client:visible />
   </div>
 </section>
