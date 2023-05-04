@@ -1,5 +1,6 @@
 import { Formik, Form, useField, FormikErrors } from "formik";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
+import InputMask from "react-input-mask";
 
 interface FormValues {
   name: string;
@@ -21,7 +22,7 @@ const ErrorMessageP = ({ message }) => {
   );
 };
 
-// Text / number input component
+// Text (or numbers) input component
 const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
@@ -37,6 +38,31 @@ const TextInput = ({ label, ...props }) => {
         {...props}
         className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:dark:font-extralight xs:w-full "
       ></input>
+      {meta.touched && meta.error ? (
+        <ErrorMessageP message={meta.error} />
+      ) : null}
+    </div>
+  );
+};
+
+// Masked phone number input component
+const PhoneInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <div>
+      <label
+        htmlFor={props.id || props.name}
+        className="font-sans dark:text-stone-50 dark:font-light text-start block mb-1 after:content-['*'] after:text-yellow-600 after:inline-block"
+      >
+        {label}{" "}
+      </label>
+      <InputMask
+        mask={"(999) 999-9999"}
+        maskChar={" "}
+        {...field}
+        {...props}
+        className="dark:bg-zinc-900 rounded-[1px] font-light italic dark:text-stone-50  pl-[0.25em] py-[.1em] placeholder:italic placeholder:dark:font-extralight xs:w-full "
+      ></InputMask>
       {meta.touched && meta.error ? (
         <ErrorMessageP message={meta.error} />
       ) : null}
@@ -110,7 +136,7 @@ const validateInputs = (values: FormValues) => {
   // Email validation
   if (!values.email) {
     errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]$/i.test(values.email)) {
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]/i.test(values.email)) {
     errors.email = "Invalid email format";
   }
 
@@ -151,14 +177,14 @@ export default function ContactForm() {
           name="name"
           type="text"
           placeholder="Your name"
-          maxlength={15}
+          maxLength={15}
         />
 
-        <TextInput
+        <PhoneInput
           label="Phone"
           name="phone"
           type="text"
-          placeholder="123 456 7890"
+          placeholder="(123) 456-7890"
         />
 
         <TextInput
