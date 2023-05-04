@@ -21,11 +21,13 @@ Landing page for my seasonal side business.
   
 
 ## Things I Used / Learned About
+* Generating a new SSH key and adding to GitHub account
 * Astro, static site generation
 * Responsive images in HTML, @astro/image integration
 * Embedding Google Maps  
 * CSS Stacking Context  
-* Generating a new SSH key and adding to GitHub account
+* Formik
+* React Input Mask for phone number input masking: (000) 000-0000
 
 ## Finished Product  
 
@@ -35,7 +37,12 @@ Landing page for my seasonal side business.
 * tailwindcss
 * @astrojs/image
 * @astrojs/tailwind
+* @astrojs/react
+* react
 * sharp
+* formik
+* @heroicons/react
+* react-input-mask
 
 <br/>
 <br/>
