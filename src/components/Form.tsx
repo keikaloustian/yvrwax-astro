@@ -15,8 +15,8 @@ interface FormValues {
 
 const ErrorMessageP = ({ message }) => {
   return (
-    <p className="form-error">
-      <ExclamationTriangleIcon className="h-4 w-4 inline-block mr-1" />
+    <p className="form-error md:text-lg">
+      <ExclamationTriangleIcon className="h-4 w-4 md:h-5 md:w-5 inline-block mr-1" />
       {message}
     </p>
   );
@@ -171,7 +171,7 @@ export default function ContactForm() {
         }, 500);
       }}
     >
-      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-16 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
+      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
         <TextInput
           label="Name"
           name="name"
