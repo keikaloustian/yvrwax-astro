@@ -217,7 +217,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="font-sans font-semibold text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
+          className="font-sans font-medium  py-[0.1em] text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
         >
           Submit
         </button>
