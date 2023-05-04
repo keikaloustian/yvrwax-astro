@@ -12,7 +12,7 @@ const servicesData: ServiceTypes = {
       price: 30,
     },
     { name: "Edge Sharpening", price: 15 },
-    { name: "Base Repair", price: "price upon inspection" },
+    { name: "Base Repair", price: "upon inspection" },
   ],
   discounts: [{ category: "kids", percentOff: 50 }],
 };
@@ -43,25 +43,37 @@ const servicesData: ServiceTypes = {
       SERVICES
     </h2>
 
-    <ul class="text-lg lg:text-2xl pl-4 text-right w-[60%] sm:w-[40%]">
-      <li class="dark:text-stone-200 font-sans dark:font-light mt-[0.5em]">
-        Hot Wax<span
-          class="font-sans dark:text-yellow-500 text-yellow-700 ml-[1em]"
-          >30</span
-        >
-      </li>
-      <li class="dark:text-stone-200 font-sans dark:font-light mt-[0.5em]">
-        Edge Sharpening<span
-          class="font-sans dark:text-yellow-500 text-yellow-700 ml-[1em]"
-          >15</span
-        >
-      </li>
-      <li class="dark:text-stone-300 font-sans dark:font-light mt-[0.5em]">
-        (kids gear <span
-          class="underline decoration-yellow-500 underline-offset-2"
-          >50% off</span
-        >)
-      </li>
+    <ul class="text-lg lg:text-2xl pl-3 text-right w-[60%] sm:w-[40%]">
+      <!-- Dynamically generate service items based on mock data in frontmatter -->
+      {
+        servicesData.services.map((service) => (
+          <li class="dark:text-stone-200 font-sans dark:font-light mt-[0.5em] ">
+            {service.name}
+            {typeof service.price === "number" ? (
+              <span class="dark:text-yellow-500 text-yellow-700 ml-[1em] inline-block">
+                {service.price}
+              </span>
+            ) : (
+              <span class="dark:text-yellow-500 text-yellow-700 text-md lg:text-lg xs:-mr-[1em] xs:ml-[1em] ml-[2em]">
+                {service.price}
+              </span>
+            )}
+          </li>
+        ))
+      }
+
+      <!-- Dynamically generate discounts based on mock data in frontmatter -->
+      {
+        servicesData.discounts.map((discount) => (
+          <li class="dark:text-stone-300 font-sans dark:font-light mt-[0.5em]">
+            ({discount.category}{" "}
+            <span class="underline decoration-yellow-500 underline-offset-2">
+              {discount.percentOff}% off
+            </span>
+            )
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
