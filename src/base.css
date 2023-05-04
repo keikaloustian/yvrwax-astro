@@ -16,3 +16,9 @@
     border-radius: 1px;
   }
 }
+
+@layer components {
+  .form-error {
+    @apply text-red-500 text-sm mt-[2px];
+  }
+}
