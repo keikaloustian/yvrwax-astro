@@ -27,6 +27,7 @@ Landing page for my seasonal side business.
 * Embedding Google Maps  
 * CSS Stacking Context  
 * Formik
+* React Input Mask for phone number input masking: (000) 000-0000
 
 ## Finished Product  
 
@@ -41,6 +42,7 @@ Landing page for my seasonal side business.
 * sharp
 * formik
 * @heroicons/react
+* react-input-mask
 
 <br/>
 <br/>
