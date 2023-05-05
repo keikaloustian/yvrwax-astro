@@ -20,6 +20,7 @@ Landing page for my seasonal side business.
 ## Further Ideas  
 * Use Yup for form schema validation
 * Add captcha or honeypot to form for spam protection
+* Add red border to form fields that don't pass validation
   
 
 ## Things I Used / Learned About
