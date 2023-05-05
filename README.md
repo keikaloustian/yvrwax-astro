@@ -18,6 +18,7 @@ Landing page for my seasonal side business.
   
 ## Further Ideas  
 * Use Yup for form schema validation
+* Add captcha or honeypot spam protection
   
 
 ## Things I Used / Learned About
