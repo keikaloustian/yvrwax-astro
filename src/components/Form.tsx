@@ -134,6 +134,8 @@ const TextArea = ({ label, ...props }: InputProps) => {
   );
 };
 
+const emptyPhoneRegEx = new RegExp("(   )    -    ");
+
 // Validation function
 const validateInputs = (values: FormValues) => {
   const errors: FormikErrors<FormValues> = {};
@@ -146,9 +148,10 @@ const validateInputs = (values: FormValues) => {
   }
 
   // Phone validation
-  if (!values.phone) {
+  console.log(values.phone);
+  if (!values.phone || values.phone === "(   )    -    ") {
     errors.phone = "Required";
-  } else if (values.phone.length > 10) {
+  } else if (!/^\(\d{3}\)\s\d{3}-\d{4}/.test(values.phone)) {
     errors.phone = "Phone number must be 10 digits";
   }
 
@@ -187,61 +190,63 @@ export default function ContactForm() {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
-        }, 500);
+        }, 1000);
       }}
     >
-      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
-        <TextInput
-          label="Name"
-          name="name"
-          type="text"
-          placeholder="Your name"
-          maxLength={15}
-        />
+      {({ isSubmitting }) => (
+        <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
+          <TextInput
+            label="Name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            maxLength={15}
+          />
 
-        <PhoneInput
-          label="Phone"
-          name="phone"
-          type="text"
-          placeholder="(123) 456-7890"
-        />
+          <PhoneInput
+            label="Phone"
+            name="phone"
+            type="text"
+            placeholder="(123) 456-7890"
+          />
 
-        <TextInput
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="your@email.com"
-        />
+          <TextInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="your@email.com"
+          />
 
-        <TextInput
-          label="How many skis/snowboards?"
-          name="gearQuantity"
-          type="number"
-          min={1}
-          max={99}
-        />
+          <TextInput
+            label="How many skis/snowboards?"
+            name="gearQuantity"
+            type="number"
+            min={1}
+            max={99}
+          />
 
-        <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
-          <CheckToken name="wax">Wax</CheckToken>
-          <CheckToken name="edges">Edges</CheckToken>
-          <CheckToken name="repairs">Repairs</CheckToken>
-        </div>
+          <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
+            <CheckToken name="wax">Wax</CheckToken>
+            <CheckToken name="edges">Edges</CheckToken>
+            <CheckToken name="repairs">Repairs</CheckToken>
+          </div>
 
-        <TextArea
-          label="Message"
-          name="message"
-          type="text"
-          placeholder="Anything else?"
-        />
+          <TextArea
+            label="Message"
+            name="message"
+            type="text"
+            placeholder="Anything else?"
+          />
 
-        <button
-          type="submit"
-          // disabled={isSubmitting}
-          className="font-sans font-medium  py-[0.1em] text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
-        >
-          Submit
-        </button>
-      </Form>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="font-sans font-medium  py-[0.1em] text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
+          >
+            Submit
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 }
