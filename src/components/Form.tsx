@@ -8,6 +8,8 @@ import {
 } from "formik";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import InputMask from "react-input-mask";
+import Spinner from "./Spinner";
+
 import type { ClassAttributes, InputHTMLAttributes } from "react";
 
 interface FormValues {
@@ -185,7 +187,7 @@ export default function ContactForm() {
         repairs: false,
         message: "",
       }}
-      validate={validateInputs}
+      // validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -241,9 +243,13 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="font-sans font-medium py-[0.1em] text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
+            className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 ${
+              isSubmitting
+                ? "bg-stone-400 text-stone-800"
+                : "text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500"
+            }`}
           >
-            Submit
+            {isSubmitting ? <Spinner /> : "Submit"}
           </button>
         </Form>
       )}
