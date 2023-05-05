@@ -1,6 +1,14 @@
-import { Formik, Form, useField, FormikErrors } from "formik";
+import {
+  Formik,
+  Form,
+  useField,
+  FormikErrors,
+  FormikProps,
+  FieldHookConfig,
+} from "formik";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import InputMask from "react-input-mask";
+import type { ClassAttributes, InputHTMLAttributes } from "react";
 
 interface FormValues {
   name: string;
@@ -13,7 +21,18 @@ interface FormValues {
   message?: string;
 }
 
-const ErrorMessageP = ({ message }) => {
+interface LabelProp {
+  label?: string;
+}
+
+type InputProps = LabelProp &
+  InputHTMLAttributes<HTMLInputElement> &
+  ClassAttributes<HTMLInputElement> &
+  InputHTMLAttributes<HTMLTextAreaElement> &
+  ClassAttributes<HTMLTextAreaElement> &
+  FieldHookConfig<string>;
+
+const ErrorMessageP = ({ message }: { message: string }) => {
   return (
     <p className="form-error md:text-lg">
       <ExclamationTriangleIcon className="h-4 w-4 md:h-5 md:w-5 inline-block mr-1" />
@@ -23,7 +42,7 @@ const ErrorMessageP = ({ message }) => {
 };
 
 // Text (or numbers) input component
-const TextInput = ({ label, ...props }) => {
+const TextInput = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div>
@@ -46,7 +65,7 @@ const TextInput = ({ label, ...props }) => {
 };
 
 // Masked phone number input component
-const PhoneInput = ({ label, ...props }) => {
+const PhoneInput = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div>
@@ -71,7 +90,7 @@ const PhoneInput = ({ label, ...props }) => {
 };
 
 // Checkbox label component
-const CheckToken = ({ children, ...props }) => {
+const CheckToken = ({ children, ...props }: InputProps) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
 
   return (
@@ -93,7 +112,7 @@ const CheckToken = ({ children, ...props }) => {
 };
 
 // Textarea component
-const TextArea = ({ label, ...props }) => {
+const TextArea = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div className="xs:col-span-2">
@@ -115,6 +134,8 @@ const TextArea = ({ label, ...props }) => {
   );
 };
 
+const emptyPhoneRegEx = new RegExp("(   )    -    ");
+
 // Validation function
 const validateInputs = (values: FormValues) => {
   const errors: FormikErrors<FormValues> = {};
@@ -127,9 +148,10 @@ const validateInputs = (values: FormValues) => {
   }
 
   // Phone validation
-  if (!values.phone) {
+  console.log(values.phone);
+  if (!values.phone || values.phone === "(   )    -    ") {
     errors.phone = "Required";
-  } else if (values.phone.length > 10) {
+  } else if (!/^\(\d{3}\)\s\d{3}-\d{4}/.test(values.phone)) {
     errors.phone = "Phone number must be 10 digits";
   }
 
@@ -168,60 +190,63 @@ export default function ContactForm() {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
-        }, 500);
+        }, 1000);
       }}
     >
-      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
-        <TextInput
-          label="Name"
-          name="name"
-          type="text"
-          placeholder="Your name"
-          maxLength={15}
-        />
+      {({ isSubmitting }) => (
+        <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
+          <TextInput
+            label="Name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            maxLength={15}
+          />
 
-        <PhoneInput
-          label="Phone"
-          name="phone"
-          type="text"
-          placeholder="(123) 456-7890"
-        />
+          <PhoneInput
+            label="Phone"
+            name="phone"
+            type="text"
+            placeholder="(123) 456-7890"
+          />
 
-        <TextInput
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="your@email.com"
-        />
+          <TextInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="your@email.com"
+          />
 
-        <TextInput
-          label="How many skis/snowboards?"
-          name="gearQuantity"
-          type="number"
-          min={1}
-          max={99}
-        />
+          <TextInput
+            label="How many skis/snowboards?"
+            name="gearQuantity"
+            type="number"
+            min={1}
+            max={99}
+          />
 
-        <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
-          <CheckToken name="wax">Wax</CheckToken>
-          <CheckToken name="edges">Edges</CheckToken>
-          <CheckToken name="repairs">Repairs</CheckToken>
-        </div>
+          <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
+            <CheckToken name="wax">Wax</CheckToken>
+            <CheckToken name="edges">Edges</CheckToken>
+            <CheckToken name="repairs">Repairs</CheckToken>
+          </div>
 
-        <TextArea
-          label="Message"
-          name="message"
-          type="text"
-          placeholder="Anything else?"
-        />
+          <TextArea
+            label="Message"
+            name="message"
+            type="text"
+            placeholder="Anything else?"
+          />
 
-        <button
-          type="submit"
-          className="font-sans font-medium py-[0.1em] text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
-        >
-          Submit
-        </button>
-      </Form>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="font-sans font-medium py-[0.1em] text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
+          >
+            Submit
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 }
