@@ -1,6 +1,14 @@
-import { Formik, Form, useField, FormikErrors } from "formik";
+import {
+  Formik,
+  Form,
+  useField,
+  FormikErrors,
+  FormikProps,
+  FieldHookConfig,
+} from "formik";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import InputMask from "react-input-mask";
+import type { ClassAttributes, InputHTMLAttributes } from "react";
 
 interface FormValues {
   name: string;
@@ -13,7 +21,18 @@ interface FormValues {
   message?: string;
 }
 
-const ErrorMessageP = ({ message }) => {
+interface LabelProp {
+  label?: string;
+}
+
+type InputProps = LabelProp &
+  InputHTMLAttributes<HTMLInputElement> &
+  ClassAttributes<HTMLInputElement> &
+  InputHTMLAttributes<HTMLTextAreaElement> &
+  ClassAttributes<HTMLTextAreaElement> &
+  FieldHookConfig<string>;
+
+const ErrorMessageP = ({ message }: { message: string }) => {
   return (
     <p className="form-error md:text-lg">
       <ExclamationTriangleIcon className="h-4 w-4 md:h-5 md:w-5 inline-block mr-1" />
@@ -23,7 +42,7 @@ const ErrorMessageP = ({ message }) => {
 };
 
 // Text (or numbers) input component
-const TextInput = ({ label, ...props }) => {
+const TextInput = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div>
@@ -46,7 +65,7 @@ const TextInput = ({ label, ...props }) => {
 };
 
 // Masked phone number input component
-const PhoneInput = ({ label, ...props }) => {
+const PhoneInput = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div>
@@ -71,7 +90,7 @@ const PhoneInput = ({ label, ...props }) => {
 };
 
 // Checkbox label component
-const CheckToken = ({ children, ...props }) => {
+const CheckToken = ({ children, ...props }: InputProps) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
 
   return (
@@ -93,7 +112,7 @@ const CheckToken = ({ children, ...props }) => {
 };
 
 // Textarea component
-const TextArea = ({ label, ...props }) => {
+const TextArea = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   return (
     <div className="xs:col-span-2">
@@ -217,6 +236,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
+          // disabled={isSubmitting}
           className="font-sans font-medium  py-[0.1em] text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
         >
           Submit
