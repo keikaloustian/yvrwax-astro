@@ -4,12 +4,13 @@ Landing page for my seasonal side business.
 
   
 ## Live Demo  
-  
+  https://yvrwax.vercel.app/
   
 ## To-do List  
 - [x] Add picture(s) to the pricing section using Astro's optimized component
+- [x] Build contact form
+- [ ] Set up serverless function to handle form to email integration
 - [ ] Add bg pattern to location section
-- [ ] Build contact form with email integration
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
 - [ ] Deploy on Vercel
@@ -18,7 +19,7 @@ Landing page for my seasonal side business.
   
 ## Further Ideas  
 * Use Yup for form schema validation
-* Add captcha or honeypot spam protection
+* Add captcha or honeypot to form for spam protection
   
 
 ## Things I Used / Learned About
@@ -28,7 +29,8 @@ Landing page for my seasonal side business.
 * Embedding Google Maps  
 * CSS Stacking Context  
 * Formik
-* React Input Mask for phone number input masking: (000) 000-0000
+* React Input Mask for phone number field: (000) 000-0000
+* Deploying a server-side rendered site on Vercel
 
 ## Finished Product  
 
@@ -39,6 +41,7 @@ Landing page for my seasonal side business.
 * @astrojs/image
 * @astrojs/tailwind
 * @astrojs/react
+* @astrojs/vercel
 * react
 * sharp
 * formik
