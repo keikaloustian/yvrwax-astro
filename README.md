@@ -4,7 +4,7 @@ Landing page for my seasonal side business.
 
   
 ## Live Demo  
-  https://yvrwax-astro.vercel.app/
+  https://yvrwax.vercel.app/
   
 ## To-do List  
 - [x] Add picture(s) to the pricing section using Astro's optimized component
