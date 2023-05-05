@@ -15,8 +15,8 @@ interface FormValues {
 
 const ErrorMessageP = ({ message }) => {
   return (
-    <p className="form-error">
-      <ExclamationTriangleIcon className="h-4 w-4 inline-block mr-1" />
+    <p className="form-error md:text-lg">
+      <ExclamationTriangleIcon className="h-4 w-4 md:h-5 md:w-5 inline-block mr-1" />
       {message}
     </p>
   );
@@ -171,7 +171,7 @@ export default function ContactForm() {
         }, 500);
       }}
     >
-      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-16 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
+      <Form className="grid gap-y-4 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
         <TextInput
           label="Name"
           name="name"
@@ -217,7 +217,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="font-sans font-medium  py-[0.1em] text-zinc-950 bg-stone-300 hover:bg-yellow-600 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
+          className="font-sans font-medium py-[0.1em] text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500 mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2"
         >
           Submit
         </button>
