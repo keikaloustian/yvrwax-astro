@@ -40,6 +40,7 @@ Landing page for my seasonal side business.
 * @astrojs/image
 * @astrojs/tailwind
 * @astrojs/react
+* @astrojs/vercel
 * react
 * sharp
 * formik
