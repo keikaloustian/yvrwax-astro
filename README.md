@@ -4,7 +4,7 @@ Landing page for my seasonal side business.
 
   
 ## Live Demo  
-  
+  https://yvrwax-astro.vercel.app/
   
 ## To-do List  
 - [x] Add picture(s) to the pricing section using Astro's optimized component
@@ -29,7 +29,8 @@ Landing page for my seasonal side business.
 * Embedding Google Maps  
 * CSS Stacking Context  
 * Formik
-* React Input Mask for phone number input masking: (000) 000-0000
+* React Input Mask for phone number field: (000) 000-0000
+* Deploying a server-side rendered site on Vercel
 
 ## Finished Product  
 
