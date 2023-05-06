@@ -189,10 +189,16 @@ export default function ContactForm() {
       }}
       // validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 1000);
+        const payload = JSON.stringify(values);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/formHandler", true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(payload);
+        setSubmitting(false);
+
+        // setTimeout(() => {
+        //   alert(JSON.stringify(values, null, 2));
+        // }, 1000);
       }}
     >
       {({ isSubmitting }) => (
