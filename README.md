@@ -13,7 +13,7 @@ Landing page for my seasonal side business.
 - [ ] Add bg pattern to location section
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
-- [ ] Deploy on Vercel
+- [x] Deploy on Vercel
   
 
   
