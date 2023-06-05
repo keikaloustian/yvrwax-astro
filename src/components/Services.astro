@@ -20,7 +20,7 @@ const servicesData: ServiceTypes = {
 
 <section id="services" class="bg-stone-100 dark:bg-zinc-950 min-h-[450px]">
   <div
-    class="relative mx-auto min-w-[300px] max-w-7xl xl:w-[62%] pt-14 pl-2 md:pt-16 lg:pt-20"
+    class="relative mx-auto min-w-[300px] max-w-7xl xl:w-[62%] pt-16 pl-2 md:pt-20 lg:pt-24"
   >
     <Picture
       src={waxDrip}
@@ -38,7 +38,7 @@ const servicesData: ServiceTypes = {
     </p>
 
     <h2
-      class="relative font-sans font-medium dark:text-yellow-500 text-yellow-700 text-lg md:text-xl xl:text-3xl z-10 mb-[3em] text-center sm:mr-[20%]"
+      class="relative font-sans font-normal dark:font-light dark:text-stone-400 text-stone-700 text-lg md:text-xl xl:text-3xl z-10 mb-[3em] text-center sm:mr-[20%]"
     >
       SERVICES
     </h2>
@@ -50,7 +50,7 @@ const servicesData: ServiceTypes = {
           <li class="dark:text-stone-200 font-sans dark:font-light mt-[0.5em] ">
             {service.name}
             {typeof service.price === "number" ? (
-              <span class="dark:text-yellow-500 text-yellow-700 ml-[1em] inline-block">
+              <span class="dark:text-stone-300 text-stone-700 ml-[1em] inline-block">
                 {service.price}
               </span>
             ) : (

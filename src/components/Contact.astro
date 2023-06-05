@@ -3,15 +3,14 @@ import ContactForm from "./Form";
 ---
 
 <section id="booking" class="min-h-[500px] bg-stone-100 dark:bg-zinc-950">
-  <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%] pt-32 pb-20">
+  <div class="mx-auto min-w-[300px] max-w-7xl xl:w-[62%] py-32 lg:py-40">
     <div class="flex justify-center">
       <h2
         class="relative z-0 inline-block font-title font-light dark:text-stone-200 text-zinc-950 text-4xl sm:text-5xl md:text-6xl xl:text-7xl before:dark:bg-stone-800 before:bg-stone-200 before:h-[.06em] before:absolute before:-inset-x-[5%] before:top-[50%] before:z-[-1]"
       >
-        GET IN <span class="dark:text-yellow-500 text-yellow-700">TOUCH</span>
+        GET IN <span class="text-stone-500">TOUCH</span>
       </h2>
     </div>
-    <!-- <Form client:visible /> -->
     <ContactForm client:visible />
   </div>
 </section>
