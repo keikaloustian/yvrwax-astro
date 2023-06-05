@@ -1,11 +1,4 @@
-import {
-  Formik,
-  Form,
-  useField,
-  FormikErrors,
-  FormikProps,
-  FieldHookConfig,
-} from "formik";
+import { Formik, Form, useField, FormikErrors, FieldHookConfig } from "formik";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import InputMask from "react-input-mask";
 import Spinner from "./Spinner";
@@ -91,7 +84,7 @@ const PhoneInput = ({ label, ...props }: InputProps) => {
   );
 };
 
-// Checkbox label component
+// Checkbox + label component
 const CheckToken = ({ children, ...props }: InputProps) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
 
@@ -135,8 +128,6 @@ const TextArea = ({ label, ...props }: InputProps) => {
     </div>
   );
 };
-
-const emptyPhoneRegEx = new RegExp("(   )    -    ");
 
 // Validation function
 const validateInputs = (values: FormValues) => {
@@ -189,10 +180,17 @@ export default function ContactForm() {
       }}
       // validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 1000);
+        const payload = JSON.stringify(values);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/formHandler", true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.send(payload);
+        setSubmitting(false);
+
+        // setTimeout(() => {
+        //   alert(JSON.stringify(values, null, 2));
+        //   setSubmitting(false);
+        // }, 1000);
       }}
     >
       {({ isSubmitting }) => (

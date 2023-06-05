@@ -26,6 +26,7 @@
     "tailwindcss": "^3.3.1"
   },
   "devDependencies": {
-    "@types/react-input-mask": "^3.0.2"
+    "@types/react-input-mask": "^3.0.2",
+    "@vercel/node": "^2.14.1"
   }
 }
