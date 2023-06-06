@@ -1,10 +1,14 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-// const https = require("https");
+
+// Node.js HTTPS module
 import https from "https";
 
 // "req" and "res": SITE <--XMLHttpRequest--> SERVERLESS FUNCTION
 const formHandler = (req: VercelRequest, res: VercelResponse) => {
   const formData = req.body;
+  console.log(formData);
+
+  // Set up api request options
   const requestOpts = {
     hostname: "https://api.web3forms.com",
     path: "/submit",
@@ -15,22 +19,35 @@ const formHandler = (req: VercelRequest, res: VercelResponse) => {
   // Append Web3Forms access key to payload
   formData["access_key"] = process.env.WEB3FORMS_ACCESS_KEY;
 
-  // "request" and "response": SERVERLESS FUNCTION <--https--> EMAIL API
-  const request = https.request(requestOpts, (response) => {
-    // console.log(`Status Code: ${res.statusCode}`);
+  // Create https request "instance"
+  // "apiRequest" and "apiResponse": SERVERLESS FUNCTION <--https--> EMAIL API
+  const apiRequest = https.request(requestOpts, (apiResponse) => {
+    let responseBody = "";
 
-    response.on("data", (data) => {
-      console.log(data.toString());
-      // Handle the response data here
+    // Collect reponse data from API
+    apiResponse.on("data", (chunk) => {
+      responseBody += chunk;
+    });
+
+    // Send response back to client
+    apiResponse.on("end", () => {
+      if (apiResponse.statusCode) {
+        res.status(apiResponse.statusCode).json(JSON.parse(responseBody));
+      }
     });
   });
 
-  request.on("error", (error) => {
+  // Define request error handling
+  apiRequest.on("error", (error) => {
     console.error(error);
-    // Handle any errors that occur during the request
+    res
+      .status(500)
+      .json({ error: "An error occurred while sending your message." });
   });
 
-  console.log(formData);
+  // Send request
+  apiRequest.write(formData);
+  apiRequest.end();
 };
 
 export default formHandler;

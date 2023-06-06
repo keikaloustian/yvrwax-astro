@@ -181,16 +181,32 @@ export default function ContactForm() {
       // validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
         const payload = JSON.stringify(values);
+
+        // Create new XMLHttpRequest object isntance
         const xhr = new XMLHttpRequest();
+
+        // Define request options
         xhr.open("POST", "/api/formHandler", true);
         xhr.setRequestHeader("Content-type", "application/json");
-        xhr.send(payload);
-        setSubmitting(false);
 
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   setSubmitting(false);
-        // }, 1000);
+        // Define callback to handle response / errors
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            setSubmitting(false);
+            if (xhr.status === 200) {
+              console.log("XHR response:" + xhr.responseText);
+              alert("success");
+            } else if (xhr.status >= 400) {
+              console.error(
+                `An error occurred while sending your message. Status: ${xhr.status}`
+              );
+              alert("failure");
+            }
+          }
+        };
+
+        // Send request
+        xhr.send(payload);
       }}
     >
       {({ isSubmitting }) => (
