@@ -12,7 +12,7 @@ const formHandler = (req: VercelRequest, res: VercelResponse) => {
     hostname: "https://api.web3forms.com",
     path: "/submit",
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: { "Content-Type": "application/json" },
   };
 
   // Append Web3Forms access key to payload
@@ -46,7 +46,7 @@ const formHandler = (req: VercelRequest, res: VercelResponse) => {
   });
 
   // Send request
-  apiRequest.write(formData);
+  apiRequest.write(JSON.stringify(formData));
   apiRequest.end();
 };
 
