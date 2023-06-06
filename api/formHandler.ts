@@ -6,7 +6,6 @@ import https from "https";
 // "req" and "res": SITE <--XMLHttpRequest--> SERVERLESS FUNCTION
 const formHandler = (req: VercelRequest, res: VercelResponse) => {
   const formData = req.body;
-  console.log(formData);
 
   // Set up api request options
   const requestOpts = {
@@ -18,6 +17,7 @@ const formHandler = (req: VercelRequest, res: VercelResponse) => {
 
   // Append Web3Forms access key to payload
   formData["access_key"] = process.env.WEB3FORMS_ACCESS_KEY;
+  console.log(formData);
 
   // Create https request "instance"
   // "apiRequest" and "apiResponse": SERVERLESS FUNCTION <--https--> EMAIL API
