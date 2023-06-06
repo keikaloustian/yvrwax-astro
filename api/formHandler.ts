@@ -9,7 +9,7 @@ const formHandler = (req: VercelRequest, res: VercelResponse) => {
 
   // Set up api request options
   const requestOpts = {
-    hostname: "https://api.web3forms.com",
+    hostname: "api.web3forms.com",
     path: "/submit",
     method: "POST",
     headers: { "Content-Type": "application/json" },
