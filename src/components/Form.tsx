@@ -280,10 +280,10 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 ${
+              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg ${
                 isSubmitting
                   ? "bg-stone-400 text-stone-800"
-                  : "text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500"
+                  : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
               }`}
             >
               {isSubmitting ? <Spinner /> : "Submit"}
