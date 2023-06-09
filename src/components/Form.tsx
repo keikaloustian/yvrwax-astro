@@ -145,7 +145,7 @@ const validateInputs = (values: FormValues) => {
   }
 
   // Phone validation
-  console.log(values.phone);
+  // console.log(values.phone);
   if (!values.phone || values.phone === "(   )    -    ") {
     errors.phone = "Required";
   } else if (!/^\(\d{3}\)\s\d{3}-\d{4}/.test(values.phone)) {
@@ -170,7 +170,10 @@ const validateInputs = (values: FormValues) => {
 };
 
 export default function ContactForm() {
-  const [submissionResult, setSubmissionResult] = useState("");
+  const [submissionResult, setSubmissionResult] = useState({
+    error: false,
+    message: "",
+  });
 
   return (
     <Formik
@@ -205,13 +208,19 @@ export default function ContactForm() {
             setSubmitting(false);
             if (xhr.status === 200) {
               // SUCCESS
-              setSubmissionResult("Thank you. We'll be in touch shortly.");
+              setSubmissionResult({
+                error: false,
+                message: "Thank you. We'll be in touch shortly.",
+              });
             } else if (xhr.status >= 400) {
               // FAILURE
               console.error(
                 `An error occurred while sending your message. Status: ${xhr.status}`
               );
-              setSubmissionResult("Error - please try again later.");
+              setSubmissionResult({
+                error: true,
+                message: "Error - please try again later.",
+              });
             }
           }
         };
@@ -230,7 +239,6 @@ export default function ContactForm() {
             placeholder="Your name"
             maxLength={15}
           />
-
           <PhoneInput
             label="Phone"
             name="phone"
@@ -239,7 +247,6 @@ export default function ContactForm() {
             autoComplete="tel-national"
             placeholder="(123) 456-7890"
           />
-
           <TextInput
             label="Email"
             name="email"
@@ -248,7 +255,6 @@ export default function ContactForm() {
             autoComplete="email"
             placeholder="your@email.com"
           />
-
           <TextInput
             label="How many skis/snowboards?"
             name="gearQuantity"
@@ -257,13 +263,11 @@ export default function ContactForm() {
             min={1}
             max={99}
           />
-
           <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
             <CheckToken name="wax">Wax</CheckToken>
             <CheckToken name="edges">Edges</CheckToken>
             <CheckToken name="repairs">Repairs</CheckToken>
           </div>
-
           <TextArea
             label="Message"
             name="message"
@@ -272,13 +276,11 @@ export default function ContactForm() {
             placeholder="Anything else?"
           />
 
+          {/* Honeypot for spam prevention */}
           <input type="checkbox" name="botcheck" className="hidden"></input>
 
-          {submissionResult ? (
-            <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
-              {submissionResult}
-            </p>
-          ) : (
+          {/* If form hasn't been submitted, display button */}
+          {!submissionResult.message && (
             <button
               type="submit"
               disabled={isSubmitting}
@@ -290,6 +292,31 @@ export default function ContactForm() {
             >
               {isSubmitting ? <Spinner /> : "Submit"}
             </button>
+          )}
+
+          {/* If submitted and error, display button and message */}
+          {submissionResult.message && submissionResult.error ? (
+            <>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
+                  isSubmitting
+                    ? "bg-stone-400 text-stone-800"
+                    : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
+                }`}
+              >
+                {isSubmitting ? <Spinner /> : "Submit"}
+              </button>
+              <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
+                {submissionResult.message}
+              </p>
+            </>
+          ) : (
+            // If successful, display just message
+            <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
+              {submissionResult.message}
+            </p>
           )}
         </Form>
       )}
