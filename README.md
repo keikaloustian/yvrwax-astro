@@ -11,7 +11,8 @@ Landing page for my seasonal side business.
 - [x] Build contact form
 - [x] Set up ~~serverless function to handle~~ form to email integration
 - [x] Display contact form submission result/feedback
-- [ ] Add more bg decorations
+- [ ] Add captcha or honeypot to form for spam protection
+- [x] Add more bg decorations
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
 - [x] Deploy on Vercel
@@ -20,7 +21,7 @@ Landing page for my seasonal side business.
   
 ## Further Ideas  
 * Use Yup for form schema validation
-* Add captcha or honeypot to form for spam protection
+* Add pause button to give visitors the option to stop the video
 * Add red border to form fields that don't pass validation
   
 
