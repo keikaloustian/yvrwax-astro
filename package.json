@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@types/react-input-mask": "^3.0.2",
-    "@vercel/node": "^2.14.1"
+    "@vercel/node": "^2.14.1",
+    "prettier": "2.8.8"
   }
 }
