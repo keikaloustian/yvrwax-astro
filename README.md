@@ -9,8 +9,8 @@ Landing page for my seasonal side business.
 ## To-do List  
 - [x] Add picture(s) to the pricing section using Astro's optimized component
 - [x] Build contact form
-- [ ] Set up serverless function to handle form to email integration
-- [ ] Add bg pattern to location section
+- [x] Set up ~~serverless function to handle~~ form to email integration
+- [ ] Add more bg decorations
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
 - [x] Deploy on Vercel
