@@ -3,7 +3,11 @@ import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import InputMask from "react-input-mask";
 import Spinner from "./Spinner";
 
-import type { ClassAttributes, InputHTMLAttributes } from "react";
+import {
+  useState,
+  type ClassAttributes,
+  type InputHTMLAttributes,
+} from "react";
 
 interface FormValues {
   name: string;
@@ -166,6 +170,8 @@ const validateInputs = (values: FormValues) => {
 };
 
 export default function ContactForm() {
+  const [submissionResult, setSubmissionResult] = useState("");
+
   return (
     <Formik
       initialValues={{
@@ -178,7 +184,7 @@ export default function ContactForm() {
         repairs: false,
         message: "",
       }}
-      // validate={validateInputs}
+      validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
         const formData = {
           ...values,
@@ -198,13 +204,14 @@ export default function ContactForm() {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             setSubmitting(false);
             if (xhr.status === 200) {
-              // console.log("XHR response:" + xhr.responseText);
-              // alert("success");
+              // SUCCESS
+              setSubmissionResult("Thank you. We'll be in touch shortly.");
             } else if (xhr.status >= 400) {
+              // FAILURE
               console.error(
                 `An error occurred while sending your message. Status: ${xhr.status}`
               );
-              // alert("failure");
+              setSubmissionResult("Error - please try again later.");
             }
           }
         };
@@ -265,17 +272,23 @@ export default function ContactForm() {
             placeholder="Anything else?"
           />
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 ${
-              isSubmitting
-                ? "bg-stone-400 text-stone-800"
-                : "text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500"
-            }`}
-          >
-            {isSubmitting ? <Spinner /> : "Submit"}
-          </button>
+          {submissionResult ? (
+            <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
+              {submissionResult}
+            </p>
+          ) : (
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 ${
+                isSubmitting
+                  ? "bg-stone-400 text-stone-800"
+                  : "text-zinc-950 bg-yellow-500/75 hover:bg-yellow-500 dark:bg-yellow-500/60 dark:hover:bg-yellow-500"
+              }`}
+            >
+              {isSubmitting ? <Spinner /> : "Submit"}
+            </button>
+          )}
         </Form>
       )}
     </Formik>
