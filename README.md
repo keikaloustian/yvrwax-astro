@@ -10,7 +10,7 @@ Landing page for my seasonal side business.
 - [x] Add picture(s) to the pricing section using Astro's optimized component
 - [x] Build contact form
 - [x] Set up ~~serverless function to handle~~ form to email integration
-- [ ] Display contact submission result/feedback
+- [ ] Display contact form submission result/feedback
 - [ ] Add more bg decorations
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
