@@ -1,12 +1,13 @@
 # YVR❄️WAX
-Landing page for my seasonal side business.  
-  
 
-  
-## Live Demo  
-  https://yvrwax.vercel.app/
-  
-## To-do List  
+Landing page for my seasonal side business.
+
+## Deployment
+
+https://yvrwax.vercel.app/
+
+## To-do List
+
 - [x] Add picture(s) to the pricing section using Astro's optimized component
 - [x] Build contact form
 - [x] Set up ~~serverless function to handle~~ form to email integration
@@ -16,41 +17,40 @@ Landing page for my seasonal side business.
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
 - [x] Deploy on Vercel
-  
 
-  
-## Further Ideas  
-* Use Yup for form schema validation
-* Add pause button to give visitors the option to stop the video
-* Add red border to form fields that don't pass validation
-  
+## Further Ideas
+
+- Use Yup for form schema validation
+- Add pause button to give visitors the option to stop the video
+- Add red border to form fields that don't pass validation
 
 ## Things I Used / Learned About
-* Generating a new SSH key and adding to GitHub account
-* Astro, static site generation
-* Responsive images in HTML, @astro/image integration
-* Embedding Google Maps  
-* CSS Stacking Context  
-* Formik
-* React Input Mask for phone number field: (000) 000-0000
-* Deploying a server-side rendered site on Vercel
-* https://app.haikei.app/ - a background SVG generator
 
-## Finished Product  
+- Generating a new SSH key and adding to GitHub account
+- Astro, static site generation
+- Responsive images in HTML, @astro/image integration
+- Embedding Google Maps
+- CSS Stacking Context
+- Formik
+- React Input Mask for phone number field: (000) 000-0000
+- Deploying a server-side rendered site on Vercel
+- https://app.haikei.app/ - a background SVG generator
 
+## Finished Product
 
 ## Dependencies
-* astro
-* tailwindcss
-* @astrojs/image
-* @astrojs/tailwind
-* @astrojs/react
-* @astrojs/vercel
-* react
-* sharp
-* formik
-* @heroicons/react
-* react-input-mask
+
+- astro
+- tailwindcss
+- @astrojs/image
+- @astrojs/tailwind
+- @astrojs/react
+- @astrojs/vercel
+- react
+- sharp
+- formik
+- @heroicons/react
+- react-input-mask
 
 <br/>
 <br/>
