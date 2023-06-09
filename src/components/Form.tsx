@@ -272,6 +272,8 @@ export default function ContactForm() {
             placeholder="Anything else?"
           />
 
+          <input type="checkbox" name="botcheck" className="hidden"></input>
+
           {submissionResult ? (
             <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
               {submissionResult}
