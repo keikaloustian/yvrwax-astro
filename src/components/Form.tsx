@@ -117,7 +117,7 @@ const TextArea = ({ label, ...props }: InputProps) => {
     <div className="xs:col-span-2">
       <label
         htmlFor={props.id}
-        className="font-sans dark:text-stone-50 font-light text-start block mb-1"
+        className="font-sans dark:text-stone-50 dark:font-light text-start block mb-1"
       >
         {label}
       </label>
@@ -280,7 +280,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg ${
+              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
                 isSubmitting
                   ? "bg-stone-400 text-stone-800"
                   : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
