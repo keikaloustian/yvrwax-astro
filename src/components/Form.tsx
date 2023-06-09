@@ -42,7 +42,7 @@ const TextInput = ({ label, ...props }: InputProps) => {
   return (
     <div>
       <label
-        htmlFor={props.id || props.name}
+        htmlFor={props.id}
         className="font-sans dark:text-stone-50 dark:font-light text-start block mb-1 after:content-['*'] after:text-yellow-600 after:inline-block"
       >
         {label}{" "}
@@ -65,7 +65,7 @@ const PhoneInput = ({ label, ...props }: InputProps) => {
   return (
     <div>
       <label
-        htmlFor={props.id || props.name}
+        htmlFor={props.id}
         className="font-sans dark:text-stone-50 dark:font-light text-start block mb-1 after:content-['*'] after:text-yellow-600 after:inline-block"
       >
         {label}{" "}
@@ -112,7 +112,7 @@ const TextArea = ({ label, ...props }: InputProps) => {
   return (
     <div className="xs:col-span-2">
       <label
-        htmlFor={props.id || props.name}
+        htmlFor={props.id}
         className="font-sans dark:text-stone-50 font-light text-start block mb-1"
       >
         {label}
@@ -180,13 +180,17 @@ export default function ContactForm() {
       }}
       // validate={validateInputs}
       onSubmit={(values, { setSubmitting }) => {
-        const payload = JSON.stringify(values);
+        const formData = {
+          ...values,
+          access_key: import.meta.env.PUBLIC_WEB3FORMS,
+        };
+        const payload = JSON.stringify(formData);
 
         // Create new XMLHttpRequest object isntance
         const xhr = new XMLHttpRequest();
 
         // Define request options
-        xhr.open("POST", "/api/formHandler", true);
+        xhr.open("POST", import.meta.env.PUBLIC_EMAIL!, true);
         xhr.setRequestHeader("Content-type", "application/json");
 
         // Define callback to handle response / errors
@@ -194,17 +198,16 @@ export default function ContactForm() {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             setSubmitting(false);
             if (xhr.status === 200) {
-              console.log("XHR response:" + xhr.responseText);
-              alert("success");
+              // console.log("XHR response:" + xhr.responseText);
+              // alert("success");
             } else if (xhr.status >= 400) {
               console.error(
                 `An error occurred while sending your message. Status: ${xhr.status}`
               );
-              alert("failure");
+              // alert("failure");
             }
           }
         };
-
         // Send request
         xhr.send(payload);
       }}
@@ -214,7 +217,9 @@ export default function ContactForm() {
           <TextInput
             label="Name"
             name="name"
+            id="name"
             type="text"
+            autoComplete="name"
             placeholder="Your name"
             maxLength={15}
           />
@@ -222,20 +227,25 @@ export default function ContactForm() {
           <PhoneInput
             label="Phone"
             name="phone"
+            id="phone"
             type="text"
+            autoComplete="tel-national"
             placeholder="(123) 456-7890"
           />
 
           <TextInput
             label="Email"
             name="email"
+            id="email"
             type="email"
+            autoComplete="email"
             placeholder="your@email.com"
           />
 
           <TextInput
             label="How many skis/snowboards?"
             name="gearQuantity"
+            id="gearQuantity"
             type="number"
             min={1}
             max={99}
@@ -250,6 +260,7 @@ export default function ContactForm() {
           <TextArea
             label="Message"
             name="message"
+            id="message"
             type="text"
             placeholder="Anything else?"
           />
