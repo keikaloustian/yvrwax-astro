@@ -12,7 +12,7 @@ https://yvrwax.vercel.app/
 - [x] Build contact form
 - [x] Set up ~~serverless function to handle~~ form to email integration
 - [x] Display contact form submission result/feedback
-- [ ] Add captcha or honeypot to form for spam protection
+- [x] Add captcha or honeypot to form for spam protection
 - [x] Add more bg decorations
 - [ ] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
@@ -22,7 +22,7 @@ https://yvrwax.vercel.app/
 
 - Use Yup for form schema validation
 - Add pause button to give visitors the option to stop the video
-- Add red border to form fields that don't pass validation
+- Add red outline to form fields that don't pass validation
 
 ## Things I Used / Learned About
 
