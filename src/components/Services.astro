@@ -2,8 +2,21 @@
 import { Picture } from "@astrojs/image/components";
 import waxDrip from "../assets/wax.jpg";
 
-// Services type definitions
-import type ServiceTypes from "../types";
+type Service = {
+  name: string;
+  price: string | number;
+};
+
+type Discount = {
+  category: string;
+  percentOff: number;
+};
+
+interface ServiceTypes {
+  services: Service[];
+  discounts: Discount[];
+}
+
 // Services data
 const servicesData: ServiceTypes = {
   services: [
