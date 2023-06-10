@@ -11,7 +11,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "bg-mountains": "url('src/assets/layered-peaks-haikei.svg')",
+        "bg-mountains": "url('/public/layered-peaks-haikei.svg')",
       },
       fontFamily: {
         title: ["Playfair Display", ...defaultTheme.fontFamily.serif],
