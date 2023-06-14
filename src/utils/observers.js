@@ -1,6 +1,7 @@
+// HEADER OPACITY CHANGE OBSERVER
 const header = document.querySelector("header");
 const hero = document.getElementById("hero");
-const bgColour = "rgba(9, 9, 11,";
+const headerBgColour = "rgba(0, 0, 0,";
 
 const heroOptions = {
   root: null,
@@ -10,10 +11,18 @@ const heroOptions = {
 
 const heroObserver = new IntersectionObserver((entries, heroObserver) => {
   entries.forEach((entry) => {
-    console.log(entry.intersectionRatio);
-    header.style.backgroundColor =
-      bgColour + ` ${1 - entry.intersectionRatio})`;
+    if (entry.intersectionRatio > 0.1) {
+      header.style.backgroundColor =
+        headerBgColour + ` ${1 - entry.intersectionRatio})`;
+    } else {
+      header.style.backgroundColor = headerBgColour + ` 1`;
+    }
   });
 }, heroOptions);
 
 heroObserver.observe(hero);
+
+// SERVICES OBSERVERS
+
+// LOCATION OBSERVERS
+// CONTACT OBSERVERS
