@@ -14,7 +14,7 @@ https://yvrwax.vercel.app/
 - [x] Display contact form submission result/feedback
 - [x] Add captcha or honeypot to form for spam protection
 - [x] Add more bg decorations
-- [ ] Use intersection observers to animate elements as users scroll
+- [x] Use intersection observers to animate elements as users scroll
 - [x] Build footer with link to GitHub
 - [x] Deploy on Vercel
 
@@ -56,7 +56,7 @@ https://yvrwax.vercel.app/
 <br/>
 <br/>
 
-# Astro Starter Kit: Minimal
+# Astro Stuff (Starter Kit: Minimal)
 
 ```
 npm create astro@latest -- --template minimal
