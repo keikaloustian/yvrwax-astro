@@ -21,4 +21,59 @@
   .form-error {
     @apply text-red-500 text-sm mt-[2px];
   }
+
+  .picture-hidden {
+    @apply translate-x-full opacity-0 blur-lg;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 750ms;
+  }
+
+  .picture-show {
+    @apply translate-x-0 opacity-100 blur-none;
+  }
+
+  .fade-hidden {
+    @apply opacity-0;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 900ms;
+  }
+
+  .fade-show {
+    @apply opacity-100;
+  }
+
+  .fade-partial-hidden {
+    @apply opacity-20;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 900ms;
+  }
+
+  .fade-partial-show {
+    @apply opacity-100;
+  }
+
+  .paragraph-hidden {
+    @apply translate-y-full opacity-0 blur-lg;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 750ms;
+  }
+
+  .paragraph-show {
+    @apply translate-y-0 opacity-100 blur-none;
+  }
+
+  .line-hidden {
+    @apply -translate-x-full opacity-0 blur-lg;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 750ms;
+  }
+
+  .line-show {
+    @apply translate-x-0 opacity-100 blur-none;
+  }
 }

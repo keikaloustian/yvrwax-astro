@@ -3,7 +3,7 @@ import ContactForm from "./Form";
 ---
 
 <section
-  id="booking"
+  id="contact"
   class="min-h-[500px] bg-stone-100 dark:bg-zinc-950 relative"
 >
   <div
@@ -11,9 +11,16 @@ import ContactForm from "./Form";
   >
     <div class="flex justify-center">
       <h2
-        class="relative z-0 inline-block font-title font-light dark:text-stone-200 text-zinc-950 text-4xl sm:text-5xl md:text-6xl xl:text-7xl before:dark:bg-stone-800 before:bg-stone-200 before:h-[.06em] before:absolute before:-inset-x-[5%] before:top-[50%] before:z-[-1]"
+        class="relative z-0 inline-block font-title font-light dark:text-stone-200 text-zinc-950 text-4xl sm:text-5xl md:text-6xl xl:text-7xl"
       >
-        GET IN <span class="text-stone-500">TOUCH</span>
+        GET IN <span
+          id="deco-contact"
+          class="text-stone-500 fade-partial-hidden">TOUCH</span
+        >
+        <div
+          class="dark:bg-stone-800 bg-stone-200 h-[.06em] absolute -inset-x-[5%] top-[50%] z-[-1] line-hidden"
+        >
+        </div>
       </h2>
     </div>
     <ContactForm client:visible />

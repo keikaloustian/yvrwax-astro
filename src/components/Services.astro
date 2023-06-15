@@ -33,22 +33,24 @@ const servicesData: ServiceTypes = {
 
 <section
   id="services"
-  class="bg-stone-100 dark:bg-zinc-950 min-h-[450px] scroll-mt-10"
+  class="bg-stone-100 dark:bg-zinc-950 min-h-[450px] scroll-mt-44"
 >
   <div
     class="relative mx-auto min-w-[300px] max-w-7xl xl:w-[62%] pt-16 pl-2 md:pt-20 lg:pt-24"
   >
     <Picture
+      id="wax-picture"
       src={waxDrip}
       widths={[250, 300, 350]}
       sizes="(max-width: 640px) 250px, (max-width: 1024px) 300px, 350px"
       alt="Block of wax being melted against a hot iron dripping onto the base of a ski"
-      class="dark:grayscale object-cover w-[33%] h-[333px] sm:w-[45%] sm:h-[400px] md:object-contain lg:h-[467px] absolute object-center right-0 sm:right-[10%]"
+      class="dark:grayscale object-cover w-[33%] h-[333px] sm:w-[45%] sm:h-[400px] md:object-contain lg:h-[467px] absolute object-center right-0 sm:right-[10%] picture-hidden"
     />
 
     <p
+      id="deco-services"
       aria-hidden="true"
-      class="absolute font-title font-medium dark:text-stone-800 text-stone-300 text-6xl md:text-7xl xl:text-8xl right-[10%] sm:right-[40%]"
+      class="absolute font-title font-medium dark:text-stone-800 text-stone-300 text-6xl md:text-7xl xl:text-8xl right-[10%] sm:right-[40%] fade-hidden"
     >
       SERVICES
     </p>
