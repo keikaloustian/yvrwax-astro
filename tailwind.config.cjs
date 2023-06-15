@@ -17,15 +17,15 @@ module.exports = {
         title: ["Playfair Display", ...defaultTheme.fontFamily.serif],
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
       },
-      keyframes: {
-        slowFall: {
-          "0%": { transform: "translate(0, -100vh)" },
-          "100%": { transform: "translate(0, 200vh)" },
-        },
-      },
-      animation: {
-        slowFall: "slowFall 5s infinite linear",
-      },
+      // keyframes: {
+      //   slowFall: {
+      //     "0%": { transform: "translate(0, -100vh)" },
+      //     "100%": { transform: "translate(0, 200vh)" },
+      //   },
+      // },
+      // animation: {
+      //   slowFall: "slowFall 5s infinite linear",
+      // },
     },
   },
   plugins: [],
