@@ -23,7 +23,7 @@
   }
 
   .picture-hidden {
-    @apply translate-x-full opacity-0 blur-lg;
+    @apply translate-x-1/2 opacity-0 blur-lg;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 750ms;
