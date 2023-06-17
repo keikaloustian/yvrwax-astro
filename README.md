@@ -36,6 +36,7 @@ https://yvrwax.vercel.app/
 - Deploying a server-side rendered site on Vercel
 - https://app.haikei.app/ - a background SVG generator
 - Intersection Observers - make things happen as the page is scrolled with JavaScript ([good video](https://www.youtube.com/watch?v=T8EYosX4NOo), [another good video](https://www.youtube.com/watch?v=T33NN_pPeNI))
+- `overflow: hidden` (on a parent) will nullify (a child's) scroll margins, but `overflow: clip` won't
 
 ## Finished Product
 
