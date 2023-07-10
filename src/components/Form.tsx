@@ -245,7 +245,7 @@ export default function ContactForm() {
             id="phone"
             type="text"
             autoComplete="tel-national"
-            placeholder="(123) 456-7890"
+            placeholder="123 456 7890"
           />
           <TextInput
             label="Email"
