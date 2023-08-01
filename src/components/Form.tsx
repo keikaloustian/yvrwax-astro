@@ -303,7 +303,7 @@ export default function ContactForm() {
                 className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
                   isSubmitting
                     ? "bg-stone-400 text-stone-800"
-                    : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
+                    : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500"
                 }`}
               >
                 {isSubmitting ? <Spinner /> : "Submit"}
@@ -314,7 +314,7 @@ export default function ContactForm() {
             </>
           ) : (
             // If successful, display just message
-            <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
+            <p className="text-zinc-900 bg-stone-200 max-w-max rounded-[2px] font-sans mt-[0.5em] text-md xs:text-lg lg:text-2xl xs:col-span-2 justify-self-center px-2 underline decoration-yellow-400 underline-offset-2 decoration-2">
               {submissionResult.message}
             </p>
           )}
