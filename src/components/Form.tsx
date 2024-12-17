@@ -175,152 +175,152 @@ export default function ContactForm() {
     message: "",
   });
 
-//   return (
-//     <Formik
-//       initialValues={{
-//         name: "",
-//         phone: "",
-//         email: "",
-//         gearQuantity: 1,
-//         wax: false,
-//         edges: false,
-//         repairs: false,
-//         message: "",
-//       }}
-//       validate={validateInputs}
-//       onSubmit={(values, { setSubmitting }) => {
-//         const formData = {
-//           ...values,
-//           access_key: import.meta.env.PUBLIC_WEB3FORMS,
-//         };
-//         const payload = JSON.stringify(formData);
+  return (
+    <Formik
+      initialValues={{
+        name: "",
+        phone: "",
+        email: "",
+        gearQuantity: 1,
+        wax: false,
+        edges: false,
+        repairs: false,
+        message: "",
+      }}
+      validate={validateInputs}
+      onSubmit={(values, { setSubmitting }) => {
+        const formData = {
+          ...values,
+          access_key: import.meta.env.PUBLIC_WEB3FORMS,
+        };
+        const payload = JSON.stringify(formData);
 
-//         // Create new XMLHttpRequest object isntance
-//         const xhr = new XMLHttpRequest();
+        // Create new XMLHttpRequest object isntance
+        const xhr = new XMLHttpRequest();
 
-//         // Define request options
-//         xhr.open("POST", import.meta.env.PUBLIC_EMAIL!, true);
-//         xhr.setRequestHeader("Content-type", "application/json");
+        // Define request options
+        xhr.open("POST", import.meta.env.PUBLIC_EMAIL!, true);
+        xhr.setRequestHeader("Content-type", "application/json");
 
-//         // Define callback to handle response / errors
-//         xhr.onreadystatechange = function () {
-//           if (xhr.readyState === XMLHttpRequest.DONE) {
-//             setSubmitting(false);
-//             if (xhr.status === 200) {
-//               // SUCCESS
-//               setSubmissionResult({
-//                 error: false,
-//                 message: "Thank you. We'll be in touch shortly.",
-//               });
-//             } else if (xhr.status >= 400) {
-//               // FAILURE
-//               console.error(
-//                 `An error occurred while sending your message. Status: ${xhr.status}`
-//               );
-//               setSubmissionResult({
-//                 error: true,
-//                 message: "Error - please try again later.",
-//               });
-//             }
-//           }
-//         };
-//         // Send request
-//         xhr.send(payload);
-//       }}
-//     >
-//       {({ isSubmitting }) => (
-//         <Form className="grid gap-y-4 xm:gap-y-5 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
-//           <TextInput
-//             label="Name"
-//             name="name"
-//             id="name"
-//             type="text"
-//             autoComplete="name"
-//             placeholder="Your name"
-//             maxLength={15}
-//           />
-//           <PhoneInput
-//             label="Phone"
-//             name="phone"
-//             id="phone"
-//             type="text"
-//             autoComplete="tel-national"
-//             placeholder="123 456 7890"
-//           />
-//           <TextInput
-//             label="Email"
-//             name="email"
-//             id="email"
-//             type="email"
-//             autoComplete="email"
-//             placeholder="your@email.com"
-//           />
-//           <TextInput
-//             label="How many skis/snowboards?"
-//             name="gearQuantity"
-//             id="gearQuantity"
-//             type="number"
-//             min={1}
-//             max={99}
-//           />
-//           <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
-//             <CheckToken name="wax">Wax</CheckToken>
-//             <CheckToken name="edges">Edges</CheckToken>
-//             <CheckToken name="repairs">Repairs</CheckToken>
-//           </div>
-//           <TextArea
-//             label="Message"
-//             name="message"
-//             id="message"
-//             type="text"
-//             placeholder="Anything else?"
-//           />
+        // Define callback to handle response / errors
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            setSubmitting(false);
+            if (xhr.status === 200) {
+              // SUCCESS
+              setSubmissionResult({
+                error: false,
+                message: "Thank you. We'll be in touch shortly.",
+              });
+            } else if (xhr.status >= 400) {
+              // FAILURE
+              console.error(
+                `An error occurred while sending your message. Status: ${xhr.status}`
+              );
+              setSubmissionResult({
+                error: true,
+                message: "Error - please try again later.",
+              });
+            }
+          }
+        };
+        // Send request
+        xhr.send(payload);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form className="grid gap-y-4 xm:gap-y-5 xs:grid-cols-2 px-6 sm:px-10 md:px-14 xl:px-0 xs:gap-x-4 md:gap-x-6 xl:gap-x-8 mt-8 md:text-2xl xl:text-3xl">
+          <TextInput
+            label="Name"
+            name="name"
+            id="name"
+            type="text"
+            autoComplete="name"
+            placeholder="Your name"
+            maxLength={15}
+          />
+          <PhoneInput
+            label="Phone"
+            name="phone"
+            id="phone"
+            type="text"
+            autoComplete="tel-national"
+            placeholder="123 456 7890"
+          />
+          <TextInput
+            label="Email"
+            name="email"
+            id="email"
+            type="email"
+            autoComplete="email"
+            placeholder="your@email.com"
+          />
+          <TextInput
+            label="How many skis/snowboards?"
+            name="gearQuantity"
+            id="gearQuantity"
+            type="number"
+            min={1}
+            max={99}
+          />
+          <div className="flex flex-wrap gap-3 xs:col-span-2 mt-1">
+            <CheckToken name="wax">Wax</CheckToken>
+            <CheckToken name="edges">Edges</CheckToken>
+            <CheckToken name="repairs">Repairs</CheckToken>
+          </div>
+          <TextArea
+            label="Message"
+            name="message"
+            id="message"
+            type="text"
+            placeholder="Anything else?"
+          />
 
-//           {/* Honeypot for spam prevention */}
-//           <input type="checkbox" name="botcheck" className="hidden"></input>
+          {/* Honeypot for spam prevention */}
+          <input type="checkbox" name="botcheck" className="hidden"></input>
 
-//           {/* If form hasn't been submitted, display button */}
-//           {!submissionResult.message && (
-//             <button
-//               type="submit"
-//               disabled={isSubmitting}
-//               className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
-//                 isSubmitting
-//                   ? "bg-stone-400 text-stone-800"
-//                   : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
-//               }`}
-//             >
-//               {isSubmitting ? <Spinner /> : "Submit"}
-//             </button>
-//           )}
+          {/* If form hasn't been submitted, display button */}
+          {!submissionResult.message && (
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
+                isSubmitting
+                  ? "bg-stone-400 text-stone-800"
+                  : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-500"
+              }`}
+            >
+              {isSubmitting ? <Spinner /> : "Submit"}
+            </button>
+          )}
 
-//           {/* If submitted and error, display button and message */}
-//           {submissionResult.message && submissionResult.error ? (
-//             <>
-//               <button
-//                 type="submit"
-//                 disabled={isSubmitting}
-//                 className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
-//                   isSubmitting
-//                     ? "bg-stone-400 text-stone-800"
-//                     : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500"
-//                 }`}
-//               >
-//                 {isSubmitting ? <Spinner /> : "Submit"}
-//               </button>
-//               <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
-//                 {submissionResult.message}
-//               </p>
-//             </>
-//           ) : (
-//             // If successful, display just message
-//             <p className="text-zinc-900 bg-stone-200 max-w-max rounded-[2px] font-sans mt-[0.5em] text-md xs:text-lg lg:text-2xl xs:col-span-2 justify-self-center px-2 underline decoration-yellow-400 underline-offset-2 decoration-2">
-//               {submissionResult.message}
-//             </p>
-//           )}
-//         </Form>
-//       )}
-//     </Formik>
-//   );
+          {/* If submitted and error, display button and message */}
+          {submissionResult.message && submissionResult.error ? (
+            <>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`font-sans font-medium py-[0.1em]  mt-[1em] w-2/5 md:w-1/3 place-self-center xs:col-span-2 pb-1 xl:pb-2 text-md sm:text-lg md:text-2xl ${
+                  isSubmitting
+                    ? "bg-stone-400 text-stone-800"
+                    : "text-zinc-950 bg-yellow-600 hover:bg-yellow-500"
+                }`}
+              >
+                {isSubmitting ? <Spinner /> : "Submit"}
+              </button>
+              <p className="dark:text-stone-300 font-sans dark:font-light mt-[0.5em] underline decoration-yellow-500 underline-offset-2 text-md xs:text-lg lg:text-2xl xs:col-span-2 text-center">
+                {submissionResult.message}
+              </p>
+            </>
+          ) : (
+            // If successful, display just message
+            <p className="text-zinc-900 bg-stone-200 max-w-max rounded-[2px] font-sans mt-[0.5em] text-md xs:text-lg lg:text-2xl xs:col-span-2 justify-self-center px-2 underline decoration-yellow-400 underline-offset-2 decoration-2">
+              {submissionResult.message}
+            </p>
+          )}
+        </Form>
+      )}
+    </Formik>
+  );
 }
 
